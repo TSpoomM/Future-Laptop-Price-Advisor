@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter.scrolledtext import ScrolledText
-from home import HomePage
 import pandas as pd
 
 
@@ -92,6 +91,7 @@ class SearchAndFilter:
             self.scrolltext.insert(tk.END, "-" * 100 + "\n")  # Add an underline after each row
 
     def go_to_home_page(self):
+        from home import HomePage
         # Destroy the current frame and create a new home page
         self.frame.destroy()
         home_page = HomePage(self.root)
