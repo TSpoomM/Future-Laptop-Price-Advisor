@@ -4,12 +4,10 @@ from tkinter.scrolledtext import ScrolledText
 import pandas as pd
 
 
-class SearchAndFilter:
+class SearchAndFilterPage:
     def __init__(self, root):
         self.root = root
-        # self.root.title("Laptop Price Predictor")
-
-        # Load the laptops data from the CSV file
+        self.root.title("Search and Filter Tool")
         self.laptops_data = pd.read_csv("laptops.csv")
         self.init_component()
 
