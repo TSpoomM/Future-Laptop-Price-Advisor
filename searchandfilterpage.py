@@ -1,3 +1,5 @@
+"""My search and filter page"""
+
 import tkinter as tk
 from tkinter import ttk
 from tkinter.scrolledtext import ScrolledText
