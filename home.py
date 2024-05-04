@@ -29,6 +29,10 @@ class HomePage:
         visualization_button = ttk.Button(self.frame, text="Statistic", command=self.go_to_visualization_page, width=20)
         visualization_button.grid(row=2, column=1, padx=10, pady=10)
 
+        # Add a button to navigate to the Exit
+        visualization_button = ttk.Button(self.frame, text="Exit", command=self.exit, width=20)
+        visualization_button.grid(row=3, column=0, padx=10, pady=10)
+
     def go_to_filter_page(self):
         from searchandfilterpage import SearchAndFilterPage
         # Destroy the current frame and create a new SearchAndFilter page
@@ -53,3 +57,5 @@ class HomePage:
         self.frame.destroy()
         comparison_page = VisualizationPage(self.root)
 
+    def exit(self):
+        self.frame.destroy()

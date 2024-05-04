@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter.scrolledtext import ScrolledText
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -26,9 +27,6 @@ class VisualizationPage:
         self.button_correlation = ttk.Button(self.frame, text="Correlation Analysis",
                                              command=self.calculate_correlation)
         self.button_correlation.grid(row=1, column=0, padx=10, pady=5)
-        # Add a text widget to display correlations
-        self.correlation_text = tk.Text(self.frame, width=70, height=10)
-        self.correlation_text.grid(row=1, column=1, pady=10)
 
         self.button_distribution = ttk.Button(self.frame, text="Distribution Graph",
                                               command=self.create_distribution_graph)
@@ -37,9 +35,16 @@ class VisualizationPage:
         self.button_other_graphs = ttk.Button(self.frame, text="Other Graphs", command=self.create_other_graphs)
         self.button_other_graphs.grid(row=3, column=0, padx=10, pady=5)
 
+        self.scrolltext = ScrolledText(self.frame, width=50, height=10, wrap=tk.WORD)
+        self.scrolltext.grid(row=0, column=1, rowspan=2, padx=10, pady=5, sticky=(tk.W, tk.N, tk.E, tk.S))
+
+        self.scrollbar = ttk.Scrollbar(self.frame, orient="vertical", command=self.scrolltext.yview)
+        self.scrollbar.grid(row=0, column=2, rowspan=2, sticky=(tk.N, tk.S))
+        self.scrolltext.config(yscrollcommand=self.scrollbar.set)
+
         # Add button to go back to home page
         self.button_back = ttk.Button(self.frame, text="Back to Home", command=self.go_to_home_page)
-        self.button_back.grid(row=4, column=0, padx=10, pady=5)
+        self.button_back.grid(row=2, column=0, columnspan=3, padx=10, pady=5)
 
     def calculate_descriptive_statistics(self):
         # Calculate descriptive statistics for Price and Rating columns
@@ -77,9 +82,13 @@ class VisualizationPage:
         correlations = self.laptops_data[['processor_tier_encoded', 'ram_memory', 'Price']].corr()
 
         # Update text widget with correlation matrix
-        self.correlation_text.delete('1.0', tk.END)  # Clear previous text
-        self.correlation_text.insert(tk.END, "Correlation matrix:\n")
-        self.correlation_text.insert(tk.END, correlations)
+        self.scrolltext.delete('1.0', tk.END)  # Clear previous text
+        self.scrolltext.insert(tk.END, "Correlation matrix:\n")
+        self.scrolltext.insert(tk.END, correlations)
+
+    def display_text(self, text):
+        self.scrolltext.delete('1.0', tk.END)  # Clear previous text
+        self.scrolltext.insert(tk.END, text)
 
     def create_distribution_graph(self):
         # Create histogram of laptop prices
@@ -114,21 +123,12 @@ class VisualizationPage:
         plt.ylabel("Display Size (inches)")
         plt.show()
 
-    def display_text(self, text):
-        # Display text on the GUI
-        text_widget = tk.Text(self.frame, height=10, width=50)
-        text_widget.insert(tk.END, text)
-        text_widget.grid(row=0, column=1, rowspan=5, padx=10, pady=5)
-
     def go_to_home_page(self):
-        # Destroy current frame and create new home page
-        self.root.destroy()
-        root = tk.Tk()
-        home_page = HomePage(root)
-        root.mainloop()
+        from home import HomePage
+        self.frame.destroy()
+        home_page = HomePage(self.root)
 
 
-# Create root window and VisualizationPage instance
 root = tk.Tk()
-visualization_page = VisualizationPage(root)
+app = VisualizationPage(root)
 root.mainloop()
