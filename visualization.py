@@ -127,8 +127,3 @@ class VisualizationPage:
         from home import HomePage
         self.frame.destroy()
         home_page = HomePage(self.root)
-
-
-root = tk.Tk()
-app = VisualizationPage(root)
-root.mainloop()
