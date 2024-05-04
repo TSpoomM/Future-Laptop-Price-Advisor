@@ -1,7 +1,9 @@
+"""My rating page"""
+
 import tkinter as tk
 from tkinter import ttk
 import pandas as pd
-from home import HomePage  # Importing the HomePage class
+from home import HomePage
 
 
 class UserRatingsPage:
