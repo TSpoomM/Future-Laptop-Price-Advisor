@@ -34,8 +34,12 @@ class UserRatingsPage:
 
     def display_ratings(self):
         # Create a frame to hold the treeview and scrollbar
-        self.frame = tk.Frame(self.root)
+        self.frame = ttk.Frame(self.root, style="Background.TFrame")
         self.frame.pack(fill="both", expand=True)
+
+        # Set background color for each frame style
+        style = ttk.Style()
+        style.configure('Background.TFrame', background='#4f4f4f')  # Dark grey for main frame
 
         # Create scrollbar
         scrollbar = ttk.Scrollbar(self.frame, orient="vertical")
