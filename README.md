@@ -10,19 +10,19 @@ diverse needs of laptop consumers.
 
 ### Main Menu
 
-![Main_Menu](screenshots/main menu.png)
+![Main_Menu](screenshots/main_menu.png)
 
 ### Search and filter Menu
 
-![Insight_Menu](screenshots/search and filter menu.png)
+![Insight_Menu](screenshots/search_and_filter_menu.png)
 
 ### Compare Menu
 
-![Compare_Menu](screenshots/rating menu.png)
+![Compare_Menu](screenshots/rating_menu.png)
 
 ### Statistic Menu
 
-![Statistic_Menu](screenshots/statistic menu.png)
+![Statistic_Menu](screenshots/statistic_menu.png)
 
 ## Data Sources
 
