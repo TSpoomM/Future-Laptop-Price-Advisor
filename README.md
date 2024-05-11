@@ -54,3 +54,6 @@ laptop pricing dynamics and consumer preferences.
 ## UML and Sequence Diagram
 
 [GitHub Class and Sequence Diagram](https://github.com/TSpoomM/Future-Laptop-Price-Advisor.wiki.git)
+
+## Demo
+[Demo Clip](https://drive.google.com/file/d/1Bhi5WPRjmyAYdqUoJo0veTiVDpebPdYP/view?usp=drive_link)
