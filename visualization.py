@@ -126,5 +126,5 @@ class VisualizationPage:
 
     def go_to_home_page(self):
         from home import HomePage
-        self.root.destroy()  # Destroy the current window
+        self.frame.destroy()  # Destroy the current window
         home_page = HomePage(self.root)
